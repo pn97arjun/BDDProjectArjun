@@ -67,6 +67,7 @@ public class loginStepDefinitions {
     @Before
     public void beforeLaunch()
     {
+        driver.manage().deleteAllCookies();
         System.out.println("Before hooks");
     }
     @After
