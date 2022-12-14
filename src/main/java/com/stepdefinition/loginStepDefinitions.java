@@ -47,6 +47,23 @@ public class loginStepDefinitions {
         base.logOff();
 
     }
+
+    @And("^I login with \"([^\"]*)\" \"([^\"]*)\"$")
+    public static void loginUser(String user,String password)
+    {
+        UserPage userPage=new UserPage(driver);
+        userPage.loginUser(user, password);
+
+    }
+
+    @And("^I Sign off$")
+    public static void signOffFunct()
+    {
+        UserPage userPage=new UserPage(driver);
+        userPage.signOff();
+
+    }
+
     @Before
     public void beforeLaunch()
     {
@@ -55,6 +72,7 @@ public class loginStepDefinitions {
     @After
     public void afterQuit()
     {
+        driver.quit();
         System.out.println("After hooks");
     }
 

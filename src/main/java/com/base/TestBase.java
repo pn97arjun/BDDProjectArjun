@@ -3,9 +3,13 @@ package com.base;
 
 
 import org.junit.Before;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 
 
@@ -32,12 +36,24 @@ public class TestBase {
     }
 
 
-    /*public void waitforElement(WebElement e)
+    public void waitforElement(WebElement e)
     {
-        WebDriverWait wait=new WebDriverWait(driver,10);
+        WebDriverWait wait=new WebDriverWait(driver,5);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(e.toString())));
 
-    }*/
+    }
+
+    public void waitseconds()
+    {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 5);
+            wait.wait(5000);
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+    }
 
     /*public void switchWindow()
     {
